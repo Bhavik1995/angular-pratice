@@ -102,4 +102,11 @@ export class CoursesComponent implements OnInit {
       this.radioButtonCount = data;
       // console.log(this.radioButtonCount)
     }
+
+    searchText: string = "";
+
+    onSearchTextEntered(data: string){
+      this.searchText = data;
+      console.log(data)
+    }
 }

@@ -1,5 +1,5 @@
 <div>
-    <app-search></app-search>
+    <app-search (searchTextChange)="onSearchTextEntered($event)"></app-search>
     <app-filter [all]="getTotalData()"
     [male]="getMaleData()"
     [female]="getFemaleData()" 
@@ -7,7 +7,8 @@
 </div>
 
 <ng-container *ngFor="let p of dataBase">
-  <div class="container" *ngIf="radioButtonCount === 'All' || radioButtonCount === p.gender">
+  <!-- radioButtonCount === 'All' || radioButtonCount === p.gender -->
+  <div class="container" *ngIf="searchText === '' || p.name.includes(searchText)">
     <div class="row">
         <div class="card" style="width: 18rem; margin: 10px;">
             <!-- <img src="" class="card-img-top" alt="..."> -->
